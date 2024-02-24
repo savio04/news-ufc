@@ -1,7 +1,7 @@
 const config = {
   client: "sqlite3",
   connection: {
-    filename: "./src/database/db.sqlite",
+    filename: "./db.sqlite",
   },
   useNullAsDefault: true,
   migrations: {
