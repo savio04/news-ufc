@@ -22,7 +22,10 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
 
     schedule.scheduleJob(`*/10 * * * *`, async () => {
       process.stdout.write(`[${new Date()}]: Job started\n`);
-      const browser = await puppeteer.launch({ headless: true });
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: [`--ignore-certificate-errors`, `--no-sandbox`],
+      });
 
       for await (const job of jobs) {
         await job(browser, client);
