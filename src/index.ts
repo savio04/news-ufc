@@ -21,7 +21,7 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
     process.stdout.write("Client wpp is ready\n");
 
     schedule.scheduleJob(`*/10 * * * *`, async () => {
-      process.stdout.write(`[${new Date()}]: Job started\n`);
+      process.stdout.write(`Job started\n`);
       const browser = await puppeteer.launch({
         headless: true,
         args: [`--ignore-certificate-errors`, `--no-sandbox`],
@@ -32,7 +32,7 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
       }
 
       await browser.close();
-      process.stdout.write(`[${new Date()}]: Job finished\n`);
+      process.stdout.write(`Job finished\n`);
     });
   });
 
