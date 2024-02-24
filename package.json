@@ -1,0 +1,28 @@
+{
+  "name": "newsletter-ufc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev:server": "tsx --watch src/index.ts",
+    "knex": "tsx ./node_modules/.bin/knex"
+  },
+  "devDependencies": {
+    "@types/node-schedule": "^2.1.6",
+    "@types/puppeteer": "^7.0.4",
+    "@types/qrcode-terminal": "^0.12.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "knex": "^3.1.0",
+    "node-schedule": "^2.1.1",
+    "puppeteer": "^22.1.0",
+    "qrcode-terminal": "^0.12.0",
+    "sqlite3": "^5.1.7",
+    "whatsapp-web.js": "^1.23.0"
+  }
+}
