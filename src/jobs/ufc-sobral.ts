@@ -12,7 +12,7 @@ export class JobUfcSobral {
 
   async execute(url: string) {
     const page = await this.browser.newPage();
-    await page.goto(url);
+    await page.goto(url, { timeout: 0 });
 
     let newsElements = await page.$$(".article-wrapper");
     newsElements = newsElements.slice(0, MAX_NEWS);
@@ -57,6 +57,8 @@ export class JobUfcSobral {
     const newNews = newsMapped.filter(
       (item) => !news.find((ns) => ns.id === item.id),
     );
+
+    process.stdout.write(`Nova noticias ${newNews.length}\n`);
 
     if (newNews.length) {
       await knex("news").insert(newNews);

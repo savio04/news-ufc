@@ -8,6 +8,9 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
 (async () => {
   const client = new WhatsappDriver({
     authStrategy: new LocalAuth({ clientId: "my-wpp" }),
+    puppeteer: {
+      args: ["--no-sandbox"],
+    },
   });
 
   client.on("qr", (qr) => {
