@@ -57,24 +57,6 @@ export class JobUfcDotBr {
       const messages = mapMessages(Origins.UFC_BR, newNews as IMapMessages[]);
 
       await this.client.sendMessages(groupId, messages);
-
-      const updatedNews = await knex("news")
-        .where({ origin: Origins.UFC_BR })
-        .orderBy("created_at", "asc");
-
-      if (updatedNews.length > MAX_NEWS) {
-        const removeSize = updatedNews.length - MAX_NEWS;
-        const removeItems = updatedNews.slice(0, removeSize);
-
-        if (removeItems.length) {
-          await knex("news")
-            .whereIn(
-              "id",
-              removeItems.map((item) => item.id),
-            )
-            .del();
-        }
-      }
     }
 
     await page.close();
