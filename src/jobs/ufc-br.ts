@@ -25,7 +25,7 @@ export class JobUfcDotBr {
 
         const title = tagA?.textContent;
         const link = `https://www.ufc.br/${tagA?.getAttribute("href")}`;
-        const id = link;
+        const id = tagA?.getAttribute("href")?.split("-")[0];
         const date = element?.querySelector(".list-date")?.textContent;
 
         return { title, link, date, id };

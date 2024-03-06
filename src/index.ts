@@ -4,6 +4,7 @@ import qrcode from "qrcode-terminal";
 import { jobs } from "./jobs";
 import schedule from "node-schedule";
 import { WhatsappDriver } from "./libs/whatsappDriver";
+import { RemoveNews } from "./jobs/remove-news";
 
 (async () => {
   const client = new WhatsappDriver({
@@ -38,3 +39,8 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
 
   client.initialize();
 })();
+
+/*Remove news from database*/
+const removeNews = new RemoveNews();
+
+schedule.scheduleJob(`*/1 * * * *`, removeNews.execute.bind(removeNews));
