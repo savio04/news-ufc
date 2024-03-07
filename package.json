@@ -12,6 +12,7 @@
   "devDependencies": {
     "@types/node-schedule": "^2.1.6",
     "@types/puppeteer": "^7.0.4",
+    "@types/qrcode": "^1.5.5",
     "@types/qrcode-terminal": "^0.12.2",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
@@ -21,6 +22,7 @@
     "knex": "^3.1.0",
     "node-schedule": "^2.1.1",
     "puppeteer": "^22.1.0",
+    "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
     "sqlite3": "^5.1.7",
     "whatsapp-web.js": "^1.23.0"

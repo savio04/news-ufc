@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 import { LocalAuth } from "whatsapp-web.js";
-import qrcode from "qrcode-terminal";
+import QRcode from "qrcode";
 import { jobs } from "./jobs";
 import schedule from "node-schedule";
 import { WhatsappDriver } from "./libs/whatsappDriver";
@@ -14,8 +14,10 @@ import { RemoveNews } from "./jobs/remove-news";
     },
   });
 
-  client.on("qr", (qr) => {
-    qrcode.generate(qr, { small: true });
+  client.on("qr", async (qr) => {
+    const qrcode = await QRcode.toDataURL(qr);
+
+    console.log({ qrcode });
   });
 
   client.on("ready", async () => {
@@ -35,12 +37,11 @@ import { RemoveNews } from "./jobs/remove-news";
       await browser.close();
       process.stdout.write(`Job finished\n`);
     });
+
+    /*Remove news from database*/
+    const removeNews = new RemoveNews();
+    schedule.scheduleJob(`*/10 * * * *`, removeNews.execute.bind(removeNews));
   });
 
   client.initialize();
 })();
-
-/*Remove news from database*/
-const removeNews = new RemoveNews();
-
-schedule.scheduleJob(`*/1 * * * *`, removeNews.execute.bind(removeNews));
