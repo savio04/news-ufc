@@ -26,8 +26,9 @@ import { RemoveNews } from "./jobs/remove-news";
     schedule.scheduleJob(`*/10 * * * *`, async () => {
       process.stdout.write(`Job started\n`);
       const browser = await puppeteer.launch({
-        headless: true,
-        args: [`--ignore-certificate-errors`, `--no-sandbox`],
+        ignoreDefaultArgs: ["--disable-extensions"],
+        args: ["--no-sandbox", "--use-gl=egl", "--disable-setuid-sandbox"],
+        ignoreHTTPSErrors: true,
       });
 
       for await (const job of jobs) {
