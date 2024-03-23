@@ -2248,7 +2248,7 @@ puppeteer-core@22.1.0:
     devtools-protocol "0.0.1232444"
     ws "8.16.0"
 
-puppeteer@*, puppeteer@^22.1.0:
+puppeteer@*:
   version "22.1.0"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-22.1.0.tgz#a3c839f51e0660f17b1623f0ae9dcc2282d4c40d"
   integrity sha512-suatHy6A48YkoykjrJNkJaixWVrvnPtzIgngK17V/P0MvgSyJzuu21PyR+0lWIK0cfZqKqmR8CHZvHzOCd4MIg==
@@ -2274,11 +2274,6 @@ puppeteer@^13.0.0:
     tar-fs "2.1.1"
     unbzip2-stream "1.4.3"
     ws "8.5.0"
-
-qrcode-terminal@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/qrcode-terminal/-/qrcode-terminal-0.12.0.tgz#bb5b699ef7f9f0505092a3748be4464fe71b5819"
-  integrity sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==
 
 qrcode@^1.5.3:
   version "1.5.3"
