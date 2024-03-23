@@ -7,6 +7,7 @@ import { WhatsappDriver } from "./libs/whatsappDriver";
 import { RemoveNews } from "./jobs/remove-news";
 import express from "express";
 import cors from "cors";
+import qrcodeTerminal from "qrcode-terminal";
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.listen(3001, () => {
 
   client.on("qr", async (qr) => {
     const qrcode = await QRcode.toDataURL(qr);
+
+    qrcodeTerminal.generate(qr, { small: true });
 
     console.log(qrcode);
   });
