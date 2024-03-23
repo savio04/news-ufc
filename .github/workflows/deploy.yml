@@ -38,5 +38,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "svioarajo-news-ufc-27"
-          entrypoint: "node dist/index.js"
+          entrypoint: "dist/index.js"
           root: "/"
