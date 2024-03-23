@@ -38,5 +38,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "svioarajo-news-ufc-27"
-          entrypoint: "yarn start"
+          entrypoint: ""
           root: "/"
