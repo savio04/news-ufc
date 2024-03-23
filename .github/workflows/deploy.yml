@@ -34,5 +34,8 @@ jobs:
       - name: Build step
         run: "yarn build"
 
-      - name: Upload to Deno Deploy
+      - name: Execute migrations
+        run: "yarn knex -- migrate:latest"
+
+      - name: Start App
         run: "yarn start"
