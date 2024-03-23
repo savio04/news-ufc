@@ -36,7 +36,7 @@ app.listen(3001, () => {
   client.on("qr", async (qr) => {
     const qrcode = await QRcode.toDataURL(qr);
 
-    console.log(JSON.stringify(qrcode));
+    console.log(qrcode);
   });
 
   client.on("ready", async () => {
